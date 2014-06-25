@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:300);
 h1 {
   text-align: center;
   font-size: 54px; }
@@ -57,7 +58,27 @@ p.small {
     z-index: 10;
     padding-bottom: 30px; }
     #preview_wrap_wrap #preview_wrap #preview {
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      overflow: hidden; }
+      #preview_wrap_wrap #preview_wrap #preview ul.lang_items {
+        zoom: 1;
+        font-family: "Raleway", sans-serif;
+        font-size: 12px;
+        margin: 0 -60px;
+        padding: 0;
+        list-style-type: none; }
+        #preview_wrap_wrap #preview_wrap #preview ul.lang_items:before, #preview_wrap_wrap #preview_wrap #preview ul.lang_items:after {
+          display: block;
+          height: 0;
+          visibility: hidden;
+          content: "\0020"; }
+        #preview_wrap_wrap #preview_wrap #preview ul.lang_items:after {
+          clear: both; }
+        #preview_wrap_wrap #preview_wrap #preview ul.lang_items li {
+          float: left;
+          margin-left: 10px; }
+          #preview_wrap_wrap #preview_wrap #preview ul.lang_items li .fa-stack {
+            width: 1em; }
 
 .fixed {
   position: fixed;
