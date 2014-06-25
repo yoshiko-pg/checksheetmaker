@@ -22,15 +22,41 @@ html lang="ja"
     .container
       .col-md-6#preview_wrap_wrap
         #preview_wrap
-          h2 プレビュー
+          h2 縮小プレビュー
           #preview
             ul.lang_items
 
           button.btn.btn-primary#shuffle 並び順をシャッフル
+          p.notice
+            | チェックしたのにチェックが表示されない場合は、
+            br
+            | 枠外へはみ出している可能性があります。
+            br
+            | 並び順をシャッフルして調節してください。
 
       .content.col-md-6
         #form
-          h2 1. できる言語にチェック！
+          h2 1. サイズをチョイス！
+          ul.size-select
+            li
+              label.radio
+                input type="radio" name="size-select" id="twitter" data-toggle="radio" data-width="1500" data-height="500" data-fontsize="12" data-lineheight="2" checked="checked"
+                | Twitterプロフィール背景(1500x500)
+            li
+              label.radio
+                input type="radio" name="size-select" id="facebook" data-toggle="radio" data-width="851" data-fontsize="4" data-height="315" data-lineheight="1.1"
+                | Facebookプロフィール背景(851x315)
+            li
+              label.radio
+                input type="radio" name="size-select" id="card-tate" data-toggle="radio" data-width="840"data-fontsize="16" data-height="1236" data-lineheight="1.7"
+                | 名刺裏 縦 (840x1236)(55mmx91mm+裁ち落とし6mm, 350dpi)
+            li
+              label.radio
+                input type="radio" name="size-select" id="card-yoko" data-toggle="radio" data-width="1236" data-fontsize="15" data-height="840" data-lineheight="2"
+                | 名刺裏 横 (1236x840)(91mmx55mm+裁ち落とし6mm, 350dpi)
+
+
+          h2 2. できる言語にチェック！
           .langs
             .category
               h3 スタンダード
@@ -195,35 +221,14 @@ html lang="ja"
                     input type="checkbox" value="Whitespace" data-toggle="checkbox"
                     | Whitespace
 
-          h2 2. 色をチョイス！
-          | 背景色：
+          h2 3. 色をチョイス！
+          h3 背景色
           input.color.form-control id="color-bg" value="94d4cc"
-          br
-          | 文字色：
+          h3 文字色
           input.color.form-control id="color-text" value="FFFFFF"
-          br
-          | チェックマーク：
+          h3 チェックマーク
           input.color.form-control id="color-check" value="000000"
 
-
-          h2 3. サイズをチョイス！
-          ul.size-select
-            li
-              label.radio
-                input type="radio" name="size-select" id="twitter" data-toggle="radio" data-width="1500" data-height="500" data-fontsize="12" checked="checked"
-                | Twitterプロフィール背景(1500x500)
-            li
-              label.radio
-                input type="radio" name="size-select" id="facebook" data-toggle="radio" data-width="851" data-fontsize="4" data-height="315"
-                | Facebookプロフィール背景(851x315)
-            li
-              label.radio
-                input type="radio" name="size-select" id="card-tate" data-toggle="radio" data-width="840"data-fontsize="16" data-height="1236"
-                | 名刺裏 縦 (840x1236)(55mmx91mm+裁ち落とし6mm, 350dpi)
-            li
-              label.radio
-                input type="radio" name="size-select" id="card-yoko" data-toggle="radio" data-width="1236" data-fontsize="15" data-height="840"
-                | 名刺裏 横 (1236x840)(91mmx55mm+裁ち落とし6mm, 350dpi)
 
         h2 4. make!
 

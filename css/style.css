@@ -18,6 +18,11 @@ p.small {
   padding-top: 5px;
   text-align: center; }
 
+p.notice {
+  color: rgba(52, 73, 94, 0.6);
+  font-size: 12px;
+  margin: 20px 0; }
+
 .content ul {
   list-style-type: none;
   padding: 0;

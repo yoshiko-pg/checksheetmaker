@@ -54,6 +54,7 @@ previewReload = ->
   width = size.data('width')
   height = size.data('height')
   fontsize = size.data('fontsize')
+  lineheight = size.data('lineheight')
 
   preview.find('li').each ->
     if $('.langs input[value="'+$(this).text().replace(/\s+/g, '')+'"]:checked').length
@@ -69,6 +70,11 @@ previewReload = ->
     height: height / 4,
     fontSize: fontsize
   })
+  preview.find('.fa-stack').css({
+    height: lineheight+'em',
+    lineHeight: lineheight+'em'
+  })
+
   preview.find('.fa-check').css('color', '#'+color.check)
 
 shuffleList = ->
