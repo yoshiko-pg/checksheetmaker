@@ -83,6 +83,9 @@ p.notice {
       #preview ul.lang_items li .fa-stack {
         width: 1em; }
 
+#my_image {
+  margin-top: 15px; }
+
 .minimize {
   -webkit-transform-origin: left top;
   transform-origin: left top;

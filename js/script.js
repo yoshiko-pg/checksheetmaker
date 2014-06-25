@@ -111,6 +111,7 @@
         var dataURI;
         dataURI = canvas.toDataURL('image/png');
         $('#my_image').attr('src', dataURI);
+        $('#download').attr('href', dataURI);
         $('#preview').appendTo('html');
         return preview.addClass('minimize').appendTo('#preview_wrap');
       }

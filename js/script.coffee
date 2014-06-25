@@ -97,6 +97,7 @@ makeImage = ->
     onrendered: (canvas)->
       dataURI = canvas.toDataURL('image/png')
       $('#my_image').attr('src', dataURI)
+      $('#download').attr('href', dataURI)
       $('#preview').appendTo('html')
       preview.addClass('minimize').appendTo('#preview_wrap')
   })
