@@ -32,8 +32,8 @@ $ ->
 
 setLangsToPreview = ->
   langs = []
-  $('.langs input').each ->
-    lang =  $(this).val()
+  $('.langs label').each ->
+    lang =  $(this).text().replace(/^\s+/, '')
     str = "<li>
     <span class='fa-stack'>
       <i class='fa fa-square-o fa-stack-1x' />
@@ -41,7 +41,6 @@ setLangsToPreview = ->
     #{lang}
     </li>"
     langs.push str
-    #langs.push str
   $('#preview').find('ul').html(langs.join(''))
 
 previewReload = ->

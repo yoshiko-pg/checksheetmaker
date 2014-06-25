@@ -47,9 +47,9 @@
   setLangsToPreview = function() {
     var langs;
     langs = [];
-    $('.langs input').each(function() {
+    $('.langs label').each(function() {
       var lang, str;
-      lang = $(this).val();
+      lang = $(this).text().replace(/^\s+/, '');
       str = "<li> <span class='fa-stack'> <i class='fa fa-square-o fa-stack-1x' /> </span> " + lang + " </li>";
       return langs.push(str);
     });
