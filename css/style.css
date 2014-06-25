@@ -23,10 +23,12 @@ p.notice {
   font-size: 12px;
   margin: 20px 0; }
 
-.content ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0 10px; }
+.content {
+  margin-bottom: 30px; }
+  .content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 10px; }
 
 .langs {
   zoom: 1; }
@@ -50,10 +52,6 @@ p.notice {
       clear: both; }
     .langs ul li {
       float: left; }
-
-.checkbox {
-  padding-left: 25px;
-  padding-right: 15px; }
 
 #preview_wrap_wrap {
   height: 300px;
@@ -105,3 +103,6 @@ p.notice {
 @media (min-width: 1200px) {
   .fixed {
     width: 40%; } }
+.checkbox {
+  padding-left: 25px;
+  padding-right: 15px; }
