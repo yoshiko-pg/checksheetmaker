@@ -1,0 +1,236 @@
+doctype 5
+html lang="ja"
+  head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=320,initial-scale=1.0,minimum-scale=1.0"
+    title プログラミング言語チェックシートメーカー
+    link rel="stylesheet" href="lib/Flat-UI/bootstrap/css/bootstrap.css"
+    link rel="stylesheet" href="lib/Flat-UI/css/flat-ui.css"
+    link rel="stylesheet" href="css/style.css"
+    script type="text/javascript" src="lib/jquery-2.1.0.min.js"
+    script type="text/javascript" src="lib/jscolor/jscolor.js"
+    script src="js/script.js"
+  body
+    
+    h1
+      | プログラミング言語
+      br
+      | チェックシートメーカー
+    p.small プログラミング言語でないものも入っていますがそこはゆるめで。
+
+    .container
+      .col-md-6#preview_wrap_wrap
+        #preview_wrap
+          h2 プレビュー
+          #preview
+          button.btn.btn-primary#shuffle 並び順をシャッフル
+
+      .content.col-md-6
+        #form
+          h2 1. できる言語にチェック！
+          .langs
+            .category
+              h3 スタンダード
+              ul
+                li
+                  label.checkbox for="C"
+                    input type="checkbox" value="C" id="C" data-toggle="checkbox"
+                    | C
+                li
+                  label.checkbox for="C#"
+                    input type="checkbox" value="C#" data-toggle="checkbox"
+                    | C#
+                li
+                  label.checkbox for="C++"
+                    input type="checkbox" value="C++" data-toggle="checkbox"
+                    | C++
+                li
+                  label.checkbox for="Java"
+                    input type="checkbox" value="Java" data-toggle="checkbox"
+                    | Java
+                li
+                  label.checkbox for="Objective-C"
+                    input type="checkbox" value="Objective-C" data-toggle="checkbox"
+                    | Objective-C
+                li
+                  label.checkbox for="PHP"
+                    input type="checkbox" value="PHP" data-toggle="checkbox"
+                    | PHP
+                li
+                  label.checkbox for="Python"
+                    input type="checkbox" value="Python" data-toggle="checkbox"
+                    | Python
+                li
+                  label.checkbox for="Ruby"
+                    input type="checkbox" value="Ruby" data-toggle="checkbox"
+                    | Ruby
+                li
+                  label.checkbox for="Perl"
+                    input type="checkbox" value="Perl" data-toggle="checkbox"
+                    | Perl
+
+            .category
+              h3 フロントエンド
+              ul
+                li
+                  label.checkbox for="CoffeeScrippt"
+                    input type="checkbox" value="CoffeeScript" data-toggle="checkbox"
+                    | CoffeeScrippt
+                li
+                  label.checkbox for="CSS"
+                    input type="checkbox" value="CSS" data-toggle="checkbox"
+                    | CSS
+                li
+                  label.checkbox for="HTML"
+                    input type="checkbox" value="HTML" data-toggle="checkbox"
+                    | HTML
+                li
+                  label.checkbox for="JavaScript"
+                    input type="checkbox" value="JavaScript" data-toggle="checkbox"
+                    | JavaScript
+                li
+                  label.checkbox for="Sass"
+                    input type="checkbox" value="Sass" data-toggle="checkbox"
+                    | Sass
+
+            .category
+              h3 関数型言語
+              ul
+                li
+                  label.checkbox for="Clojure"
+                    input type="checkbox" value="Clojure" data-toggle="checkbox"
+                    | Clojure
+                li
+                  label.checkbox for="Erlang"
+                    input type="checkbox" value="Erlang" data-toggle="checkbox"
+                    | Erlang
+                li
+                  label.checkbox for="F#"
+                    input type="checkbox" value="F#" data-toggle="checkbox"
+                    | F#
+                li
+                  label.checkbox for="Haskell"
+                    input type="checkbox" value="Haskell" data-toggle="checkbox"
+                    | Haskell
+                li
+                  label.checkbox for="LISP"
+                    input type="checkbox" value="LISP" data-toggle="checkbox"
+                    | LISP
+                li
+                  label.checkbox for="Ocaml"
+                    input type="checkbox" value="Ocaml" data-toggle="checkbox"
+                    | Ocaml
+                li
+                  label.checkbox for="Scala"
+                    input type="checkbox" value="Scala" data-toggle="checkbox"
+                    | Scala
+                li
+                  label.checkbox for="Scheme"
+                    input type="checkbox" value="Scheme" data-toggle="checkbox"
+                    | Scheme
+
+            .category
+              h3 その他
+              ul
+                li
+                  label.checkbox for="Assembly"
+                    input type="checkbox" value="Assembly" data-toggle="checkbox"
+                    | Assembly
+                li
+                  label.checkbox for="COBOL"
+                    input type="checkbox" value="COBOL" data-toggle="checkbox"
+                    | COBOL
+                li
+                  label.checkbox for="D"
+                    input type="checkbox" value="D" data-toggle="checkbox"
+                    | D
+                li
+                  label.checkbox for="Fortran"
+                    input type="checkbox" value="Fortran" data-toggle="checkbox"
+                    | Fortran
+                li
+                  label.checkbox for="Go"
+                    input type="checkbox" value="Go" data-toggle="checkbox"
+                    | Go
+                li
+                  label.checkbox for="Groovy"
+                    input type="checkbox" value="Groovy" data-toggle="checkbox"
+                    | Groovy
+                li
+                  label.checkbox for="Lua"
+                    input type="checkbox" value="Lua" data-toggle="checkbox"
+                    | Lua
+                li
+                  label.checkbox for="Pascal"
+                    input type="checkbox" value="Pascal" data-toggle="checkbox"
+                    | Pascal
+                li
+                  label.checkbox for="Prolog"
+                    input type="checkbox" value="Prolog" data-toggle="checkbox"
+                    | Prolog
+                li
+                  label.checkbox for="R"
+                    input type="checkbox" value="R" data-toggle="checkbox"
+                    | R
+                li
+                  label.checkbox for="SQL"
+                    input type="checkbox" value="SQL" data-toggle="checkbox"
+                    | SQL
+                li
+                  label.checkbox for="Smalltalk"
+                    input type="checkbox" value="Smalltalk" data-toggle="checkbox"
+                    | Smalltalk
+                li
+                  label.checkbox for="VB.NET"
+                    input type="checkbox" value="VB.NET" data-toggle="checkbox"
+                    | VB.NET
+                li
+                  label.checkbox for="Whitespace"
+                    input type="checkbox" value="Whitespace" data-toggle="checkbox"
+                    | Whitespace
+
+          h2 2. 色をチョイス！
+          | 背景色：
+          input.color.form-control id="color-bg" value="94d4cc"
+          br
+          | 文字色：
+          input.color.form-control id="color-text" value="FFFFFF"
+          br
+          | チェックマーク：
+          input.color.form-control id="color-check" value="000000"
+
+
+          h2 3. サイズをチョイス！
+          ul.size-select
+            li
+              label.radio
+                input type="radio" name="size-select" id="twitter" data-toggle="radio" data-width="1500" data-height="500" checked="checked"
+                | Twitterプロフィール背景(1500x500)
+            li
+              label.radio
+                input type="radio" name="size-select" id="facebook" data-toggle="radio" data-width="851" data-height="315"
+                | Facebookプロフィール背景(851x315)
+            li
+              label.radio
+                input type="radio" name="size-select" id="card-tate" data-toggle="radio" data-width="840" data-height="1236"
+                | 名刺裏 縦 (840x1236)(55mmx91mm+裁ち落とし6mm, 350dpi)
+            li
+              label.radio
+                input type="radio" name="size-select" id="card-yoko" data-toggle="radio" data-width="1236" data-height="840"
+                | 名刺裏 横 (1236x840)(91mmx55mm+裁ち落とし6mm, 350dpi)
+
+        h2 4. make!
+
+
+//script src="lib/Flat-UI/js/jquery-1.8.3.min.js"
+script src="lib/Flat-UI/js/jquery-ui-1.10.3.custom.min.js"
+script src="lib/Flat-UI/js/jquery.ui.touch-punch.min.js"
+script src="lib/Flat-UI/js/bootstrap.min.js"
+script src="lib/Flat-UI/js/bootstrap-select.js"
+script src="lib/Flat-UI/js/bootstrap-switch.js"
+script src="lib/Flat-UI/js/flatui-checkbox.js"
+script src="lib/Flat-UI/js/flatui-radio.js"
+script src="lib/Flat-UI/js/jquery.tagsinput.js"
+script src="lib/Flat-UI/js/jquery.placeholder.js"
+script src="lib/Flat-UI/js/jquery.stacktable.js"
+script src="lib/Flat-UI/js/application.js"
