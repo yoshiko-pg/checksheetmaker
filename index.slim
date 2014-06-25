@@ -8,6 +8,7 @@ html lang="ja"
     link rel="stylesheet" href="lib/Flat-UI/bootstrap/css/bootstrap.css"
     link rel="stylesheet" href="lib/Flat-UI/css/flat-ui.css"
     link rel="stylesheet" href="css/style.css"
+    script type="text/javascript" src="lib/html2canvas.js"
     script type="text/javascript" src="lib/jquery-2.1.0.min.js"
     script type="text/javascript" src="lib/jscolor/jscolor.js"
     script src="js/script.js"
@@ -23,16 +24,13 @@ html lang="ja"
       .col-md-6#preview_wrap_wrap
         #preview_wrap
           h2 縮小プレビュー
-          #preview
-            ul.lang_items
-
-          button.btn.btn-primary#shuffle 並び順をシャッフル
           p.notice
-            | チェックしたのにチェックが表示されない場合は、
-            br
+            | ※ チェックしたのにチェックが表示されない場合は、
             | 枠外へはみ出している可能性があります。
-            br
             | 並び順をシャッフルして調節してください。
+          button.btn.btn-primary#shuffle 並び順をシャッフル
+          #preview.minimize
+            ul.lang_items
 
       .content.col-md-6
         #form
@@ -40,19 +38,19 @@ html lang="ja"
           ul.size-select
             li
               label.radio
-                input type="radio" name="size-select" id="twitter" data-toggle="radio" data-width="1500" data-height="500" data-fontsize="12" data-lineheight="2" checked="checked"
+                input type="radio" name="size-select" id="twitter" data-toggle="radio" data-width="1500" data-height="500" data-fontsize="54" data-lineheight="2" checked="checked"
                 | Twitterプロフィール背景(1500x500)
             li
               label.radio
-                input type="radio" name="size-select" id="facebook" data-toggle="radio" data-width="851" data-fontsize="4" data-height="315" data-lineheight="1.1"
+                input type="radio" name="size-select" id="facebook" data-toggle="radio" data-width="851" data-fontsize="30" data-height="315" data-lineheight="2.1"
                 | Facebookプロフィール背景(851x315)
             li
               label.radio
-                input type="radio" name="size-select" id="card-tate" data-toggle="radio" data-width="840"data-fontsize="16" data-height="1236" data-lineheight="1.7"
+                input type="radio" name="size-select" id="card-tate" data-toggle="radio" data-width="840"data-fontsize="64" data-height="1236" data-lineheight="2"
                 | 名刺裏 縦 (840x1236)(55mmx91mm+裁ち落とし6mm, 350dpi)
             li
               label.radio
-                input type="radio" name="size-select" id="card-yoko" data-toggle="radio" data-width="1236" data-fontsize="15" data-height="840" data-lineheight="2"
+                input type="radio" name="size-select" id="card-yoko" data-toggle="radio" data-width="1236" data-fontsize="60" data-height="840" data-lineheight="2"
                 | 名刺裏 横 (1236x840)(91mmx55mm+裁ち落とし6mm, 350dpi)
 
 
@@ -231,6 +229,32 @@ html lang="ja"
 
 
         h2 4. make!
+        button#make.btn.btn-primary 画像を生成
+
+div class="modal fade"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
+        h4 class="modal-title" Modal title
+      div class="modal-body"
+        | test
+      div class="modal-footer"
+        button type="button" class="btn btn-default" data-dismiss="modal" Close
+        button type="button" class="btn btn-primary" Save changes
+
+
+div class="modal fade" id="makeModal" tabindex="-1" role="dialog" aria-labelledby="makeModalLabel" aria-hidden="true"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
+        h4 class="modal-title" id="makeModalLabel" 完成！
+      div class="modal-body"
+        img#my_image width="100%"
+      div class="modal-footer"
+        button type="button" class="btn btn-default" data-dismiss="modal" Close
+        button type="button" class="btn btn-primary" Save changes
 
 
 //script src="lib/Flat-UI/js/jquery-1.8.3.min.js"

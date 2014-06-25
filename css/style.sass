@@ -64,21 +64,24 @@ p.notice
     background-color: #FFFFFF
     z-index: 10
     padding-bottom: 30px
-    #preview
-      @include preview_font
-      margin-bottom: 20px
-      overflow: hidden
-      ul.lang_items
-        @include cf
-        margin: 0 -50px
-        padding: 0
-        list-style-type: none
-        li
-          float: left
-          margin-left: 10px
-          .fa-stack
-            width: 1em
+#preview
+  @include preview_font
+  margin-top: 20px
+  overflow: hidden
+  ul.lang_items
+    @include cf
+    margin: 0 -4em 0 -2em
+    padding: 0
+    list-style-type: none
+    li
+      float: left
+      margin-left: 0.7em
+      .fa-stack
+        width: 1em
 
+.minimize
+  transform-origin: left top
+  transform: scale(0.3)
 
 .fixed
   position: fixed

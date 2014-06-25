@@ -1,5 +1,5 @@
 (function() {
-  var previewReload, setLangsToPreview, shuffleList;
+  var makeImage, previewReload, setLangsToPreview, shuffleList;
 
   Array.prototype.shuffle = function() {
     var i, j, t;
@@ -27,6 +27,11 @@
     $('#shuffle').on({
       click: function() {
         return shuffleList();
+      }
+    });
+    $('#make').on({
+      click: function() {
+        return makeImage();
       }
     });
     preview_offset = preview_wrap.offset().top;
@@ -73,8 +78,8 @@
     preview.css({
       backgroundColor: '#' + color.bg,
       color: '#' + color.text,
-      width: width / 4,
-      height: height / 4,
+      width: width,
+      height: height,
       fontSize: fontsize
     });
     preview.find('.fa-stack').css({
@@ -93,6 +98,23 @@
     });
     langs.shuffle();
     return preview.find('ul').html(langs.join(''));
+  };
+
+  makeImage = function() {
+    var modal, preview;
+    preview = $('#preview');
+    preview.removeClass('minimize').appendTo('html');
+    modal = $('#makeModal');
+    modal.modal('show');
+    return html2canvas(preview, {
+      onrendered: function(canvas) {
+        var dataURI;
+        dataURI = canvas.toDataURL('image/png');
+        $('#my_image').attr('src', dataURI);
+        $('#preview').appendTo('html');
+        return preview.addClass('minimize').appendTo('#preview_wrap');
+      }
+    });
   };
 
 }).call(this);

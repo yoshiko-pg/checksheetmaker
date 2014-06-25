@@ -20,6 +20,9 @@ $ ->
   $('#shuffle').on click: ->
     shuffleList()
 
+  $('#make').on click: ->
+    makeImage()
+
   preview_offset = preview_wrap.offset().top
   $(window).scroll ->
     if($(window).scrollTop() > preview_offset - 25)
@@ -66,8 +69,8 @@ previewReload = ->
   preview.css({
     backgroundColor: '#'+color.bg,
     color: '#'+color.text,
-    width: width / 4,
-    height: height / 4,
+    width: width,
+    height: height,
     fontSize: fontsize
   })
   preview.find('.fa-stack').css({
@@ -84,3 +87,17 @@ shuffleList = ->
     langs.push '<li>'+$(this).html()+'</li>'
   langs.shuffle()
   preview.find('ul').html(langs.join(''))
+
+makeImage = ->
+  preview = $('#preview')
+  preview.removeClass('minimize').appendTo('html')
+  modal = $('#makeModal')
+  modal.modal('show')
+  html2canvas(preview, {
+    onrendered: (canvas)->
+      dataURI = canvas.toDataURL('image/png')
+      $('#my_image').attr('src', dataURI)
+      $('#preview').appendTo('html')
+      preview.addClass('minimize').appendTo('#preview_wrap')
+  })
+
