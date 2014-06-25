@@ -10,10 +10,15 @@ Array.prototype.shuffle = ->
 
 $ ->
   preview_wrap = $('#preview_wrap')
-  previewReload(preview)
+  setLangsToPreview()
+  shuffleList()
+  previewReload()
 
-  $('#form').change ->
+  $('#form').on change: ->
     previewReload()
+
+  $('#shuffle').on click: ->
+    shuffleList()
 
   preview_offset = preview_wrap.offset().top
   $(window).scroll ->
@@ -22,7 +27,23 @@ $ ->
     else
       preview_wrap.removeClass('fixed')
 
-previewReload = (preview)->
+setLangsToPreview = ->
+  langs = []
+  $('.langs input').each ->
+    lang =  $(this).val()
+    str = "<li>
+    <span class='fa-stack'>
+      <i class='fa fa-square-o fa-stack-1x' />
+    </span>
+    #{lang}
+    </li>"
+    langs.push str
+    #langs.push str
+  $('#preview').find('ul').html(langs.join(''))
+
+previewReload = ->
+  preview = $('#preview')
+
   # 必要な値を修得
   color = {}
   color.bg = $('#color-bg').val()
@@ -33,31 +54,25 @@ previewReload = (preview)->
   width = size.data('width')
   height = size.data('height')
 
-  langs = []
-  $('.langs input').each ->
-    lang =  $(this).val()
-    checked = if $(this).is(':checked') then "<i class='fa fa-check fa-stack-1x' />" else ''
-    str = "<li>
-    <span class='fa-stack'>
-      <i class='fa fa-square-o fa-stack-1x' />
-      #{checked}
-    </span>
-    #{lang}
-    </li>"
-    langs.push str
-    langs.push str
-  #langs.shuffle()
-
+  preview.find('li').each ->
+    if $('.langs input[value="'+$(this).text().replace(/\s+/g, '')+'"]:checked').length
+      $(this).find('.fa-stack').append("<i class='fa fa-check fa-stack-1x' />")
+    else if $(this).find('.fa-check').length
+      $(this).find('.fa-check').remove()
 
   # 反映
-  preview = $('#preview')
   preview.css({
     backgroundColor: '#'+color.bg,
     color: '#'+color.text,
     width: width / 4,
     height: height / 4
   })
-  preview.find('ul').html(langs.join(' '))
   preview.find('.fa-check').css('color', '#'+color.check)
 
-  #チェックボックスの色変える
+shuffleList = ->
+  preview = $('#preview')
+  langs = []
+  preview.find('li').each ->
+    langs.push '<li>'+$(this).html()+'</li>'
+  langs.shuffle()
+  preview.find('ul').html(langs.join(''))

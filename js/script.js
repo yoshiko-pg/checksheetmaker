@@ -1,5 +1,5 @@
 (function() {
-  var previewReload;
+  var previewReload, setLangsToPreview, shuffleList;
 
   Array.prototype.shuffle = function() {
     var i, j, t;
@@ -16,9 +16,18 @@
   $(function() {
     var preview_offset, preview_wrap;
     preview_wrap = $('#preview_wrap');
-    previewReload(preview);
-    $('#form').change(function() {
-      return previewReload();
+    setLangsToPreview();
+    shuffleList();
+    previewReload();
+    $('#form').on({
+      change: function() {
+        return previewReload();
+      }
+    });
+    $('#shuffle').on({
+      click: function() {
+        return shuffleList();
+      }
     });
     preview_offset = preview_wrap.offset().top;
     return $(window).scroll(function() {
@@ -30,8 +39,21 @@
     });
   });
 
-  previewReload = function(preview) {
-    var color, height, langs, size, width;
+  setLangsToPreview = function() {
+    var langs;
+    langs = [];
+    $('.langs input').each(function() {
+      var lang, str;
+      lang = $(this).val();
+      str = "<li> <span class='fa-stack'> <i class='fa fa-square-o fa-stack-1x' /> </span> " + lang + " </li>";
+      return langs.push(str);
+    });
+    return $('#preview').find('ul').html(langs.join(''));
+  };
+
+  previewReload = function() {
+    var color, height, preview, size, width;
+    preview = $('#preview');
     color = {};
     color.bg = $('#color-bg').val();
     color.text = $('#color-text').val();
@@ -39,24 +61,31 @@
     size = $('.size-select :checked');
     width = size.data('width');
     height = size.data('height');
-    langs = [];
-    $('.langs input').each(function() {
-      var checked, lang, str;
-      lang = $(this).val();
-      checked = $(this).is(':checked') ? "<i class='fa fa-check fa-stack-1x' />" : '';
-      str = "<li> <span class='fa-stack'> <i class='fa fa-square-o fa-stack-1x' /> " + checked + " </span> " + lang + " </li>";
-      langs.push(str);
-      return langs.push(str);
+    preview.find('li').each(function() {
+      if ($('.langs input[value="' + $(this).text().replace(/\s+/g, '') + '"]:checked').length) {
+        return $(this).find('.fa-stack').append("<i class='fa fa-check fa-stack-1x' />");
+      } else if ($(this).find('.fa-check').length) {
+        return $(this).find('.fa-check').remove();
+      }
     });
-    preview = $('#preview');
     preview.css({
       backgroundColor: '#' + color.bg,
       color: '#' + color.text,
       width: width / 4,
       height: height / 4
     });
-    preview.find('ul').html(langs.join(' '));
     return preview.find('.fa-check').css('color', '#' + color.check);
+  };
+
+  shuffleList = function() {
+    var langs, preview;
+    preview = $('#preview');
+    langs = [];
+    preview.find('li').each(function() {
+      return langs.push('<li>' + $(this).html() + '</li>');
+    });
+    langs.shuffle();
+    return preview.find('ul').html(langs.join(''));
   };
 
 }).call(this);
