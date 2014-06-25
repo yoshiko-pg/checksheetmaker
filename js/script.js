@@ -52,7 +52,7 @@
   };
 
   previewReload = function() {
-    var color, height, preview, size, width;
+    var color, fontsize, height, preview, size, width;
     preview = $('#preview');
     color = {};
     color.bg = $('#color-bg').val();
@@ -61,6 +61,7 @@
     size = $('.size-select :checked');
     width = size.data('width');
     height = size.data('height');
+    fontsize = size.data('fontsize');
     preview.find('li').each(function() {
       if ($('.langs input[value="' + $(this).text().replace(/\s+/g, '') + '"]:checked').length) {
         return $(this).find('.fa-stack').append("<i class='fa fa-check fa-stack-1x' />");
@@ -72,7 +73,8 @@
       backgroundColor: '#' + color.bg,
       color: '#' + color.text,
       width: width / 4,
-      height: height / 4
+      height: height / 4,
+      fontSize: fontsize
     });
     return preview.find('.fa-check').css('color', '#' + color.check);
   };

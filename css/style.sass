@@ -1,7 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:300)
 @mixin preview_font
   font-family: 'Raleway', sans-serif
-  font-size: 12px
 
 @mixin cf 
   zoom: 1
@@ -61,12 +60,12 @@ p.small
     z-index: 10
     padding-bottom: 30px
     #preview
+      @include preview_font
       margin-bottom: 20px
       overflow: hidden
       ul.lang_items
         @include cf
-        @include preview_font
-        margin: 0 -60px
+        margin: 0 -50px
         padding: 0
         list-style-type: none
         li

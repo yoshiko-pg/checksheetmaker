@@ -53,6 +53,7 @@ previewReload = ->
   size = $('.size-select :checked')
   width = size.data('width')
   height = size.data('height')
+  fontsize = size.data('fontsize')
 
   preview.find('li').each ->
     if $('.langs input[value="'+$(this).text().replace(/\s+/g, '')+'"]:checked').length
@@ -65,7 +66,8 @@ previewReload = ->
     backgroundColor: '#'+color.bg,
     color: '#'+color.text,
     width: width / 4,
-    height: height / 4
+    height: height / 4,
+    fontSize: fontsize
   })
   preview.find('.fa-check').css('color', '#'+color.check)
 
