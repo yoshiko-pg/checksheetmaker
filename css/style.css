@@ -11,10 +11,12 @@ p.small {
   padding-top: 5px;
   text-align: center; }
 
+.mg20 {
+  margin: 20px 0; }
+
 p.notice {
   color: rgba(52, 73, 94, 0.6);
-  font-size: 12px;
-  margin: 20px 0; }
+  font-size: 12px; }
 
 .content {
   margin-bottom: 30px; }
@@ -86,6 +88,13 @@ p.notice {
 .checkbox {
   padding-left: 25px;
   padding-right: 15px; }
+
+#copyright {
+  font-family: "Raleway", sans-serif;
+  margin: 20px;
+  text-align: center; }
+  #copyright i {
+    margin-right: 5px; }
 
 @media (min-width: 993px) {
   header {

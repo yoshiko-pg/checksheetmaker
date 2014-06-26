@@ -27,10 +27,11 @@ html lang="ja"
       .col-md-6#preview_wrap_wrap
         #preview_wrap
           h2 縮小プレビュー
-          p.notice
-            | ※ チェックしたのにチェックが表示されない場合は、
-            | 枠外へはみ出している可能性があります。
-            | 並び順をシャッフルして調節してください。
+          .mg20
+            p.notice
+              | ※ チェックしたのにチェックが表示されない場合は、
+              | 枠外へはみ出している可能性があります。
+              | 並び順をシャッフルして調節してください。
           button.btn.btn-primary#shuffle 並び順をシャッフル
           #hider
             #preview.minimize
@@ -235,6 +236,19 @@ html lang="ja"
         h2 4. make!
         button#make.btn.btn-primary type="button" data-loading-text="生成中..." 画像を生成
 
+        h2.text-muted つくったひと
+        p
+          a href="http://yoshiko-pg.github.io" target="_blank"
+            img src="http://yoshiko-pg.github.io/img/logo_icon.png"
+            | &nbsp;&nbsp;よしこ
+        p.notice
+          | 言語追加要望、改善プルリク歓迎です。
+
+
+#copyright
+  a href="http://yoshiko-pg.github.io" target="_blank"
+    i.fa.fa-check-square-o
+    | 2014 &copy; yoshiko-pg
 
 div class="modal fade" id="makeModal" tabindex="-1" role="dialog" aria-labelledby="makeModalLabel" aria-hidden="true"
   div class="modal-dialog"
