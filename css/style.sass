@@ -83,18 +83,13 @@ p.notice
   transform-origin: left top
   transform: scale(0.3)
 
-.fixed
-  position: fixed
-  top: 0px
-  width: 100%
-@media (min-width: 768px)
+@media (max-width: 992px)
+  #preview_wrap_wrap
+    display: none
+@media (min-width: 993px)
   .fixed
-    width: 100%
-@media (min-width: 992px)
-  .fixed
-    width: 40%
-@media (min-width: 1200px)
-  .fixed
+    position: fixed
+    top: 0px
     width: 40%
 
 .checkbox
