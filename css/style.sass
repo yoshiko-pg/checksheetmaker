@@ -25,13 +25,6 @@
 body
   -webkit-text-size-adjust: 100%
 
-h1
-  text-align: center
-  font-size: 54px
-h2
-  font-size: 34px
-h3
-  font-size: 20px
 
 p.small
   color: rgba(52, 73, 94, 0.30000000000000004)
@@ -101,15 +94,61 @@ p.notice
 // PC
 /////////////////////////////////////////////
 @media (min-width: 993px)
+  header
+    display: none
   .fixed
     position: fixed
     top: 0px
     width: 40%
-
+  h1
+    text-align: center
+    font-size: 54px
+  h2
+    font-size: 34px
+  h3
+    font-size: 20px
 
 /////////////////////////////////////////////
 // スマホ
 /////////////////////////////////////////////
 @media (max-width: 992px)
+  body
+    padding-top: 60px
+  header
+    padding: 15px
+    text-align: center
+    position: fixed
+    left: 0
+    top: 0
+    width: 100%
+    background-color: #FFFFFF
+    z-index: 30
   #preview_wrap_wrap
     display: none
+  #spModal .modal-body
+    padding-bottom: 100%
+  #preview
+    position: absolute
+    left: 20px
+    top: 200px
+  #sp_close
+    position: absolute
+    left: 50%
+    bottom: 15px
+    margin-left: -40px
+
+  .minimize
+    transform: scale(0.17)
+
+  h1
+    text-align: center
+    font-size: 28px
+  h2
+    font-size: 22px
+  .modal h2
+    margin-top: 0
+  h3
+    font-size: 20px
+  p.small
+    font-size: 14px
+    margin: 0 20px

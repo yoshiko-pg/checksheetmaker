@@ -13,7 +13,10 @@ html lang="ja"
     script type="text/javascript" src="lib/jscolor/jscolor.js"
     script src="js/script.js"
   body
-    
+
+    header
+      button#sp_preview.btn.btn-primary type="button" 画像をプレビュー
+
     h1
       | プログラミング言語
       br
@@ -243,6 +246,15 @@ div class="modal fade" id="makeModal" tabindex="-1" role="dialog" aria-labelledb
           a.btn.btn-primary#download href="" download="checksheet.png" Download
         img#my_image width="100%"
         h3 作ったことをシェアしよう！
+
+
+div.modal.fade#spModal tabindex="-1" role="dialog" aria-labelledby="spModalLabel" aria-hidden="true"
+  div.modal-dialog
+    div.modal-content
+      div.modal-body
+          button.btn.btn-default#sp_close type="button" data-dismiss="modal"
+            i.fa.fa-times
+            | Close
 
 
 

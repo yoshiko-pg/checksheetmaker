@@ -1,5 +1,5 @@
 (function() {
-  var makeImage, previewReload, setLangsToPreview, shuffleList;
+  var makeImage, previewReload, setLangsToPreview, shuffleList, spPreview;
 
   Array.prototype.shuffle = function() {
     var i, j, t;
@@ -32,6 +32,11 @@
     $('#make').on({
       click: function() {
         return makeImage();
+      }
+    });
+    $('#sp_preview').on({
+      click: function() {
+        return spPreview();
       }
     });
     preview_offset = preview_wrap.offset().top;
@@ -116,6 +121,10 @@
         return preview.addClass('minimize').appendTo('#preview_wrap');
       }
     });
+  };
+
+  spPreview = function() {
+    return $('#spModal').modal('show').find('.modal-body').prepend($('#preview_wrap'));
   };
 
 }).call(this);

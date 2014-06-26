@@ -23,6 +23,9 @@ $ ->
   $('#make').on click: ->
     makeImage()
 
+  $('#sp_preview').on click: ->
+    spPreview()
+
   preview_offset = preview_wrap.offset().top
   $(window).scroll ->
     if($(window).scrollTop() > preview_offset - 25)
@@ -100,4 +103,7 @@ makeImage = ->
       $('#preview').appendTo('html')
       preview.addClass('minimize').appendTo('#preview_wrap')
   })
+
+spPreview = ->
+  $('#spModal').modal('show').find('.modal-body').prepend($('#preview_wrap'))
 
