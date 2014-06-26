@@ -95,14 +95,15 @@ p.notice {
   -webkit-transform: scale(0.3);
   transform: scale(0.3); }
 
-@media (max-width: 992px) {
-  #preview_wrap_wrap {
-    display: none; } }
+.checkbox {
+  padding-left: 25px;
+  padding-right: 15px; }
+
 @media (min-width: 993px) {
   .fixed {
     position: fixed;
     top: 0px;
     width: 40%; } }
-.checkbox {
-  padding-left: 25px;
-  padding-right: 15px; }
+@media (max-width: 992px) {
+  #preview_wrap_wrap {
+    display: none; } }
