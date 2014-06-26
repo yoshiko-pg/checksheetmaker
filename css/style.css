@@ -54,7 +54,6 @@ p.notice {
   height: 300px;
   position: relative; }
   #preview_wrap_wrap #preview_wrap {
-    background-color: white;
     z-index: 10;
     padding-bottom: 30px; }
 
@@ -141,7 +140,7 @@ p.notice {
   .fixed {
     position: fixed;
     top: 0px;
-    width: 40%; }
+    width: 30%; }
 
   h1 {
     text-align: center;
