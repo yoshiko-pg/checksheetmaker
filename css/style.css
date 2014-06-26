@@ -96,30 +96,30 @@ p.notice {
   #copyright i {
     margin-right: 5px; }
 
-#share {
+.share_buttons {
   zoom: 1;
-  margin: 15px 0 15px -240px;
+  margin: 15px 0 15px -230px;
   padding: 0;
   list-style-type: none;
   position: relative;
   left: 50%; }
-  #share:before, #share:after {
+  .share_buttons:before, .share_buttons:after {
     display: block;
     height: 0;
     visibility: hidden;
     content: "\0020"; }
-  #share:after {
+  .share_buttons:after {
     clear: both; }
-  #share li {
+  .share_buttons li {
     float: left;
     width: 120px; }
-    #share li#share_twitter {
+    .share_buttons li.share_twitter {
       width: 110px; }
-    #share li#share_facebook {
+    .share_buttons li.share_facebook {
       width: 160px; }
-    #share li#share_twitter {
+    .share_buttons li.share_twitter {
       width: 120px; }
-    #share li#share_twitter {
+    .share_buttons li.share_twitter {
       width: 100px; }
 
 @media (min-width: 993px) {
