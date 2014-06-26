@@ -109,7 +109,9 @@
   };
 
   makeImage = function() {
-    var modal, preview;
+    var makebtn, modal, preview;
+    makebtn = $('#make');
+    makebtn.button('loading');
     preview = $('#preview');
     preview.removeClass('minimize').appendTo('html');
     modal = $('#makeModal');
@@ -121,7 +123,8 @@
         $('#my_image').attr('src', dataURI);
         $('#download').attr('href', dataURI);
         $('#preview').appendTo('html');
-        return preview.addClass('minimize').appendTo('#hider');
+        preview.addClass('minimize').appendTo('#hider');
+        return makebtn.button('reset');
       }
     });
   };

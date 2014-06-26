@@ -93,6 +93,8 @@ shuffleList = ->
   preview.find('ul').html(langs.join(''))
 
 makeImage = ->
+  makebtn = $('#make')
+  makebtn.button('loading')
   preview = $('#preview')
   preview.removeClass('minimize').appendTo('html')
   modal = $('#makeModal')
@@ -104,6 +106,7 @@ makeImage = ->
       $('#download').attr('href', dataURI)
       $('#preview').appendTo('html')
       preview.addClass('minimize').appendTo('#hider')
+      makebtn.button('reset')
   })
 
 spPreview = ->
