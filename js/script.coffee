@@ -78,8 +78,11 @@ previewReload = ->
     height: lineheight+'em',
     lineHeight: lineheight+'em'
   })
-
   preview.find('.fa-check').css('color', '#'+color.check)
+  $('#hider').css({
+    width: width * 0.17,
+    height: height * 0.17
+  })
 
 shuffleList = ->
   preview = $('#preview')
@@ -100,11 +103,11 @@ makeImage = ->
       $('#my_image').attr('src', dataURI)
       $('#download').attr('href', dataURI)
       $('#preview').appendTo('html')
-      preview.addClass('minimize').appendTo('#preview_wrap')
+      preview.addClass('minimize').appendTo('#hider')
   })
 
 spPreview = ->
-  $('#spModal').modal('show').find('.modal-body').prepend($('#preview_wrap'))
+  $('#spModal').modal('show').find('.modal-body').append($('#preview_wrap'))
 
 rememberToLocalStorage = ->
   langs = []

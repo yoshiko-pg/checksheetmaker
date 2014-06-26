@@ -32,8 +32,9 @@ html lang="ja"
             | 枠外へはみ出している可能性があります。
             | 並び順をシャッフルして調節してください。
           button.btn.btn-primary#shuffle 並び順をシャッフル
-          #preview.minimize
-            ul.lang_items
+          #hider
+            #preview.minimize
+              ul.lang_items
 
       .content.col-md-6
         #form
@@ -252,6 +253,7 @@ div.modal.fade#spModal tabindex="-1" role="dialog" aria-labelledby="spModalLabel
   div.modal-dialog
     div.modal-content
       div.modal-body
+        .text-right
           button.btn.btn-default#sp_close type="button" data-dismiss="modal"
             i.fa.fa-times
             | Close

@@ -81,9 +81,7 @@ p.notice {
 
 .minimize {
   -webkit-transform-origin: left top;
-  transform-origin: left top;
-  -webkit-transform: scale(0.3);
-  transform: scale(0.3); }
+  transform-origin: left top; }
 
 .checkbox {
   padding-left: 25px;
@@ -106,7 +104,11 @@ p.notice {
     font-size: 34px; }
 
   h3 {
-    font-size: 20px; } }
+    font-size: 20px; }
+
+  .minimize {
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3); } }
 @media (max-width: 992px) {
   body {
     padding-top: 60px; }
@@ -124,19 +126,11 @@ p.notice {
   #preview_wrap_wrap {
     display: none; }
 
-  #spModal .modal-body {
-    padding-bottom: 100%; }
+  #preview_wrap {
+    margin-top: 15px; }
 
-  #preview {
-    position: absolute;
-    left: 20px;
-    top: 200px; }
-
-  #sp_close {
-    position: absolute;
-    left: 50%;
-    bottom: 15px;
-    margin-left: -40px; }
+  #hider {
+    overflow: hidden; }
 
   .minimize {
     -webkit-transform: scale(0.17);

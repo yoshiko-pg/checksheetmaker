@@ -90,7 +90,11 @@
       height: lineheight + 'em',
       lineHeight: lineheight + 'em'
     });
-    return preview.find('.fa-check').css('color', '#' + color.check);
+    preview.find('.fa-check').css('color', '#' + color.check);
+    return $('#hider').css({
+      width: width * 0.17,
+      height: height * 0.17
+    });
   };
 
   shuffleList = function() {
@@ -117,13 +121,13 @@
         $('#my_image').attr('src', dataURI);
         $('#download').attr('href', dataURI);
         $('#preview').appendTo('html');
-        return preview.addClass('minimize').appendTo('#preview_wrap');
+        return preview.addClass('minimize').appendTo('#hider');
       }
     });
   };
 
   spPreview = function() {
-    return $('#spModal').modal('show').find('.modal-body').prepend($('#preview_wrap'));
+    return $('#spModal').modal('show').find('.modal-body').append($('#preview_wrap'));
   };
 
   rememberToLocalStorage = function() {

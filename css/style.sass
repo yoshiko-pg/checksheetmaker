@@ -83,7 +83,6 @@ p.notice
 
 .minimize
   transform-origin: left top
-  transform: scale(0.3)
 
 .checkbox
   padding-left: 25px
@@ -107,6 +106,8 @@ p.notice
     font-size: 34px
   h3
     font-size: 20px
+  .minimize
+    transform: scale(0.3)
 
 /////////////////////////////////////////////
 // スマホ
@@ -125,17 +126,10 @@ p.notice
     z-index: 30
   #preview_wrap_wrap
     display: none
-  #spModal .modal-body
-    padding-bottom: 100%
-  #preview
-    position: absolute
-    left: 20px
-    top: 200px
-  #sp_close
-    position: absolute
-    left: 50%
-    bottom: 15px
-    margin-left: -40px
+  #preview_wrap
+    margin-top: 15px
+  #hider
+    overflow: hidden
 
   .minimize
     transform: scale(0.17)
