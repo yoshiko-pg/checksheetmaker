@@ -12,10 +12,12 @@ $ ->
   preview_wrap = $('#preview_wrap')
   setLangsToPreview()
   shuffleList()
+  setFormFromLocalStorage()
   previewReload()
 
   $('#form').on change: ->
     previewReload()
+    rememberToLocalStorage()
 
   $('#shuffle').on click: ->
     shuffleList()
@@ -50,10 +52,7 @@ previewReload = ->
   preview = $('#preview')
 
   # 必要な値を修得
-  color = {}
-  color.bg = $('#color-bg').val()
-  color.text = $('#color-text').val()
-  color.check = $('#color-check').val()
+  color = getColorValue()
 
   size = $('.size-select :checked')
   width = size.data('width')
@@ -107,3 +106,31 @@ makeImage = ->
 spPreview = ->
   $('#spModal').modal('show').find('.modal-body').prepend($('#preview_wrap'))
 
+rememberToLocalStorage = ->
+  langs = []
+  $('.langs :checked').each ->
+    langs.push $(this).val()
+  localStorage['size'] = $('.size-select :checked').attr('id')
+  localStorage['langs'] = langs
+  localStorage['color'] = JSON.stringify(getColorValue())
+
+
+setFormFromLocalStorage = ->
+  if localStorage['size']
+    $('.size-select #'+localStorage['size']).attr('checked', true)
+  if localStorage['langs']
+    langs = localStorage['langs'].split(',').forEach (item) ->
+      $(".langs input[value='#{item}']").attr("checked", true)
+  if localStorage['color']
+    color = JSON.parse(localStorage['color']);
+    $('#color-bg').val(color.bg)
+    $('#color-text').val(color.text)
+    $('#color-check').val(color.check)
+
+
+getColorValue = ->
+  return {
+    bg: $('#color-bg').val()
+    text: $('#color-text').val()
+    check: $('#color-check').val()
+  }

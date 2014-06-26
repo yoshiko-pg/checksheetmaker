@@ -1,5 +1,5 @@
 (function() {
-  var makeImage, previewReload, setLangsToPreview, shuffleList, spPreview;
+  var getColorValue, makeImage, previewReload, rememberToLocalStorage, setFormFromLocalStorage, setLangsToPreview, shuffleList, spPreview;
 
   Array.prototype.shuffle = function() {
     var i, j, t;
@@ -18,10 +18,12 @@
     preview_wrap = $('#preview_wrap');
     setLangsToPreview();
     shuffleList();
+    setFormFromLocalStorage();
     previewReload();
     $('#form').on({
       change: function() {
-        return previewReload();
+        previewReload();
+        return rememberToLocalStorage();
       }
     });
     $('#shuffle').on({
@@ -64,10 +66,7 @@
   previewReload = function() {
     var color, fontsize, height, lineheight, preview, size, width;
     preview = $('#preview');
-    color = {};
-    color.bg = $('#color-bg').val();
-    color.text = $('#color-text').val();
-    color.check = $('#color-check').val();
+    color = getColorValue();
     size = $('.size-select :checked');
     width = size.data('width');
     height = size.data('height');
@@ -125,6 +124,43 @@
 
   spPreview = function() {
     return $('#spModal').modal('show').find('.modal-body').prepend($('#preview_wrap'));
+  };
+
+  rememberToLocalStorage = function() {
+    var langs;
+    langs = [];
+    $('.langs :checked').each(function() {
+      return langs.push($(this).val());
+    });
+    localStorage['size'] = $('.size-select :checked').attr('id');
+    localStorage['langs'] = langs;
+    return localStorage['color'] = JSON.stringify(getColorValue());
+  };
+
+  setFormFromLocalStorage = function() {
+    var color, langs;
+    if (localStorage['size']) {
+      $('.size-select #' + localStorage['size']).attr('checked', true);
+    }
+    if (localStorage['langs']) {
+      langs = localStorage['langs'].split(',').forEach(function(item) {
+        return $(".langs input[value='" + item + "']").attr("checked", true);
+      });
+    }
+    if (localStorage['color']) {
+      color = JSON.parse(localStorage['color']);
+      $('#color-bg').val(color.bg);
+      $('#color-text').val(color.text);
+      return $('#color-check').val(color.check);
+    }
+  };
+
+  getColorValue = function() {
+    return {
+      bg: $('#color-bg').val(),
+      text: $('#color-text').val(),
+      check: $('#color-check').val()
+    };
   };
 
 }).call(this);
