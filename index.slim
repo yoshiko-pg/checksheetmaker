@@ -33,6 +33,9 @@ html lang="ja"
       li.share_github
         <iframe src="http://ghbtns.com/github-btn.html?user=yoshiko-pg&repo=checksheetmaker&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
 
+    .text-center
+      button.btn.btn-info data-toggle="modal" data-target="#aboutModal" つかいかた
+
     .container
       .col-md-6#preview_wrap_wrap
         #preview_wrap
@@ -282,11 +285,44 @@ div class="modal fade" id="makeModal" tabindex="-1" role="dialog" aria-labelledb
             <iframe src="http://ghbtns.com/github-btn.html?user=yoshiko-pg&repo=checksheetmaker&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
 
 
-div.modal.fade#spModal tabindex="-1" role="dialog" aria-labelledby="spModalLabel" aria-hidden="true"
-  div.modal-dialog
-    div.modal-content
-      div.modal-body
+.modal.fade#spModal tabindex="-1" role="dialog" aria-labelledby="spModalLabel" aria-hidden="true"
+  .modal-dialog
+    .modal-content
+      .modal-body
         .text-right
+          button.btn.btn-default#sp_close type="button" data-dismiss="modal"
+            i.fa.fa-times
+            | Close
+
+
+.modal.fade#aboutModal tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-hidden="true" &times;
+        h4 class="modal-title" id="aboutModalLabel" つかいかた
+      .modal-body
+        h5 何ができるの？
+        p 自分の得意な言語にチェックが入った、言語柄の画像を作成できます。
+        ul
+          li Twitter, Facebookのプロフィール背景画像に
+          li 名刺の裏側に
+        p 他ご自由にお使いいただけます。
+        h6 イメージ
+        #samples
+          img#sample1 src="img/sample_twitter.png"
+          img#sample2 src="img/sample_card1.jpg"
+          img#sample3 src="img/sample_card2.jpg"
+        h5 つかいかた
+        ol
+          li サイズを選んで、
+          li 言語を選んで、
+          li 色を選んで、
+          li プレビューで位置をシャッフルして、
+          li 気に入った位置になったら画像をmake！
+        p ※ 気に入った位置になるまでシャッフルするのが大変かもしれませんが、イライラしないのがコツです。
+
+        .text-center
           button.btn.btn-default#sp_close type="button" data-dismiss="modal"
             i.fa.fa-times
             | Close

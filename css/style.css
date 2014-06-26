@@ -123,6 +123,15 @@ p.notice {
     .share_buttons li.share_twitter {
       width: 100px; }
 
+#samples {
+  margin: 15px 0; }
+  #samples #sample1 {
+    width: 90%;
+    margin: 0 5% 15px; }
+  #samples #sample2, #samples #sample3 {
+    width: 40%;
+    margin: 0 5%; }
+
 @media (min-width: 993px) {
   header {
     display: none; }
