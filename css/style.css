@@ -96,6 +96,32 @@ p.notice {
   #copyright i {
     margin-right: 5px; }
 
+#share {
+  zoom: 1;
+  margin: 15px 0 15px -240px;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+  left: 50%; }
+  #share:before, #share:after {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    content: "\0020"; }
+  #share:after {
+    clear: both; }
+  #share li {
+    float: left;
+    width: 120px; }
+    #share li#share_twitter {
+      width: 110px; }
+    #share li#share_facebook {
+      width: 160px; }
+    #share li#share_twitter {
+      width: 120px; }
+    #share li#share_twitter {
+      width: 100px; }
+
 @media (min-width: 993px) {
   header {
     display: none; }
