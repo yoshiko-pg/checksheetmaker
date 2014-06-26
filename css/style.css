@@ -133,14 +133,14 @@ p.notice {
     width: 40%;
     margin: 0 5%; }
 
-@media (min-width: 993px) {
+@media (min-width: 992px) {
   header {
     display: none; }
 
   .fixed {
     position: fixed;
     top: 0px;
-    width: 30%; }
+    width: 440px; }
 
   h1 {
     text-align: center;
@@ -158,6 +158,9 @@ p.notice {
 
   .share_buttons .fb-like span {
     vertical-align: baseline !important; } }
+@media (min-width: 1200px) {
+  .fixed {
+    width: 540px; } }
 @media (max-width: 992px) {
   body {
     padding-top: 60px; }
