@@ -1,6 +1,8 @@
+@charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Raleway:300);
 body {
-  -webkit-text-size-adjust: 100%; }
+  -webkit-text-size-adjust: 100%;
+  font-family: "Lato", Helvetica, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo, メイリオ, Arial, sans-serif; }
 
 p.small {
   color: rgba(52, 73, 94, 0.3);
