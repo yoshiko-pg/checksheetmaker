@@ -153,7 +153,10 @@ p.notice {
 
   .minimize {
     -webkit-transform: scale(0.3);
-    transform: scale(0.3); } }
+    transform: scale(0.3); }
+
+  .share_buttons .fb-like span {
+    vertical-align: baseline !important; } }
 @media (max-width: 992px) {
   body {
     padding-top: 60px; }
