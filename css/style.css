@@ -116,7 +116,8 @@ p.notice {
     .share_buttons li.share_twitter {
       width: 110px; }
     .share_buttons li.share_facebook {
-      width: 160px; }
+      width: 160px;
+      margin-bottom: 15px; }
     .share_buttons li.share_twitter {
       width: 120px; }
     .share_buttons li.share_twitter {
