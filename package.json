@@ -9,6 +9,7 @@
   "author": "yoshiko-pg",
   "license": "MIT",
   "devDependencies": {
+    "gulp": "^3.8.2",
     "gulp-autoprefixer": "0.0.7",
     "gulp-coffee": "^2.0.1",
     "gulp-plumber": "^0.6.3",
