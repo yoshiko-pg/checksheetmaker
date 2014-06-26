@@ -27,7 +27,7 @@ html lang="ja"
       li.share_twitter
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="yoshiko_pg" data-lang="ja">ツイート</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       li.share_facebook
-        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fyoshiko-pg.github.io%2Fchecksheetmaker%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+        <div class="fb-like" data-href="http://yoshiko-pg.github.io/checksheetmaker/" data-width="160" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
       li.share_bookmark
         <a href="http://b.hatena.ne.jp/entry/http://yoshiko-pg.github.io/checksheetmaker/" class="hatena-bookmark-button" data-hatena-bookmark-title="プログラミング言語チェックシートメーカー" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
       li.share_github
@@ -275,7 +275,7 @@ div class="modal fade" id="makeModal" tabindex="-1" role="dialog" aria-labelledb
           li.share_twitter
             <a href="https://twitter.com/share" class="twitter-share-button" data-text="「プログラミング言語 チェックシートメーカー」でプロフィール背景画像を作りました！" data-via="yoshiko_pg" data-hashtags="checksheetmaker">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
           li.share_facebook
-            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fyoshiko-pg.github.io%2Fchecksheetmaker%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+            <div class="fb-like" data-href="http://yoshiko-pg.github.io/checksheetmaker/" data-width="160" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
           li.share_bookmark
             <a href="http://b.hatena.ne.jp/entry/http://yoshiko-pg.github.io/checksheetmaker/" class="hatena-bookmark-button" data-hatena-bookmark-title="プログラミング言語チェックシートメーカー" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
           li.share_github
@@ -292,6 +292,15 @@ div.modal.fade#spModal tabindex="-1" role="dialog" aria-labelledby="spModalLabel
             | Close
 
 
+<div id="fb-root"></div>
+javascript:
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
 
 //script src="lib/Flat-UI/js/jquery-1.8.3.min.js"
 script src="lib/Flat-UI/js/jquery-ui-1.10.3.custom.min.js"
