@@ -15,7 +15,6 @@
 
   $(function() {
     var preview_offset, preview_wrap;
-    preview_wrap = $('#preview_wrap');
     setLangsToPreview();
     shuffleList();
     setFormFromLocalStorage();
@@ -41,6 +40,7 @@
         return spPreview();
       }
     });
+    preview_wrap = $('#preview_wrap');
     preview_offset = preview_wrap.offset().top;
     return $(window).scroll(function() {
       if ($(window).scrollTop() > preview_offset - 25) {
@@ -65,13 +65,13 @@
 
   previewReload = function() {
     var color, fontsize, height, lineheight, preview, size, width;
-    preview = $('#preview');
     color = getColorValue();
     size = $('.size-select :checked');
     width = size.data('width');
     height = size.data('height');
     fontsize = size.data('fontsize');
     lineheight = size.data('lineheight');
+    preview = $('#preview');
     preview.find('li').each(function() {
       if ($('.langs input[value="' + $(this).text().replace(/\s+/g, '') + '"]:checked').length) {
         return $(this).find('.fa-stack').append("<i class='fa fa-check fa-stack-1x' />");
@@ -109,20 +109,18 @@
   };
 
   makeImage = function() {
-    var makebtn, modal, preview;
+    var makebtn, preview;
     makebtn = $('#make');
     makebtn.button('loading');
     preview = $('#preview');
     preview.removeClass('minimize').appendTo('html');
-    modal = $('#makeModal');
-    modal.modal('show');
+    $('#makeModal').modal('show');
     return html2canvas(preview, {
       onrendered: function(canvas) {
         var dataURI;
         dataURI = canvas.toDataURL('image/png');
         $('#my_image').attr('src', dataURI);
         $('#download').attr('href', dataURI);
-        $('#preview').appendTo('html');
         preview.addClass('minimize').appendTo('#hider');
         return makebtn.button('reset');
       }

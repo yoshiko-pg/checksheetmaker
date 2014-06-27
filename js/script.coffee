@@ -9,7 +9,6 @@ Array.prototype.shuffle = ->
 
 
 $ ->
-  preview_wrap = $('#preview_wrap')
   setLangsToPreview()
   shuffleList()
   setFormFromLocalStorage()
@@ -28,6 +27,8 @@ $ ->
   $('#sp_preview').on click: ->
     spPreview()
 
+  # スクロールしたらプレビューを固定
+  preview_wrap = $('#preview_wrap')
   preview_offset = preview_wrap.offset().top
   $(window).scroll ->
     if($(window).scrollTop() > preview_offset - 25)
@@ -35,6 +36,7 @@ $ ->
     else
       preview_wrap.removeClass('fixed')
 
+# プレビューdivの中へ言語一覧をセット
 setLangsToPreview = ->
   langs = []
   $('.langs label').each ->
@@ -48,25 +50,24 @@ setLangsToPreview = ->
     langs.push str
   $('#preview').find('ul').html(langs.join(''))
 
+# プレビューを更新
 previewReload = ->
-  preview = $('#preview')
-
   # 必要な値を修得
   color = getColorValue()
-
   size = $('.size-select :checked')
   width = size.data('width')
   height = size.data('height')
   fontsize = size.data('fontsize')
   lineheight = size.data('lineheight')
 
+  # 反映
+  preview = $('#preview')
   preview.find('li').each ->
     if $('.langs input[value="'+$(this).text().replace(/\s+/g, '')+'"]:checked').length
       $(this).find('.fa-stack').append("<i class='fa fa-check fa-stack-1x' />")
     else if $(this).find('.fa-check').length
       $(this).find('.fa-check').remove()
 
-  # 反映
   preview.css({
     backgroundColor: '#'+color.bg,
     color: '#'+color.text,
@@ -79,11 +80,14 @@ previewReload = ->
     lineHeight: lineheight+'em'
   })
   preview.find('.fa-check').css('color', '#'+color.check)
+
+  # スマホ向け overflow: hiddenが効かない問題解消
   $('#hider').css({
     width: width * 0.17,
     height: height * 0.17
   })
 
+# プレビューの言語リストをシャッフル
 shuffleList = ->
   preview = $('#preview')
   langs = []
@@ -92,26 +96,27 @@ shuffleList = ->
   langs.shuffle()
   preview.find('ul').html(langs.join(''))
 
+# 画像を生成
 makeImage = ->
   makebtn = $('#make')
   makebtn.button('loading')
   preview = $('#preview')
   preview.removeClass('minimize').appendTo('html')
-  modal = $('#makeModal')
-  modal.modal('show')
+  $('#makeModal').modal('show')
   html2canvas(preview, {
     onrendered: (canvas)->
       dataURI = canvas.toDataURL('image/png')
       $('#my_image').attr('src', dataURI)
       $('#download').attr('href', dataURI)
-      $('#preview').appendTo('html')
       preview.addClass('minimize').appendTo('#hider')
       makebtn.button('reset')
   })
 
+# スマホ用プレビュー表示
 spPreview = ->
   $('#spModal').modal('show').find('.modal-body').append($('#preview_wrap'))
 
+# 設定値をlocalStorageに保存
 rememberToLocalStorage = ->
   langs = []
   $('.langs :checked').each ->
@@ -120,7 +125,7 @@ rememberToLocalStorage = ->
   localStorage['langs'] = langs
   localStorage['color'] = JSON.stringify(getColorValue())
 
-
+# localStorageから各項目を設定
 setFormFromLocalStorage = ->
   if localStorage['size']
     $('.size-select #'+localStorage['size']).attr('checked', true)
@@ -133,7 +138,7 @@ setFormFromLocalStorage = ->
     $('#color-text').val(color.text)
     $('#color-check').val(color.check)
 
-
+# 色の設定値を取得
 getColorValue = ->
   return {
     bg: $('#color-bg').val()
